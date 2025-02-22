@@ -1,0 +1,183 @@
+/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: black;
+  line-height: 2.2;
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 10px;
+  word-spacing: 0.1em;
+  margin-top: 10px;
+}
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(97, 174, 243);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Section Styling */
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+h1.title,
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Button Styling */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(53, 53, 53);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(30, 30, 30);
+}
+
+p {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: black; 
+}
+
+/* Card Styling */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 30%;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #666;
+}

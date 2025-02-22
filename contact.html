@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <div id="contactApp">
+      <nav class="dashboard-header">
+        <div class="logo">MyPortfolio</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">My Profile</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <section class="section_text">
+        <h1 class="title">Get in Touch</h1>
+        <form @submit.prevent="submitForm">
+          <div class="filter-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              v-model="form.name"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="filter-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              v-model="form.email"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div class="filter-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              v-model="form.message"
+              placeholder="Write your message here"
+              required
+            ></textarea>
+          </div>
+          <div class="btn-container">
+            <button type="submit" class="btn">Send</button>
+          </div>
+        </form>
+        <p v-if="successMessage">{{ successMessage }}</p>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      new Vue({
+        el: "#contactApp",
+        data: {
+          form: {
+            name: "",
+            email: "",
+            message: "",
+          },
+          successMessage: "",
+          errorMessage: "",
+        },
+        methods: {
+          async submitForm() {
+            try {
+              const response = await fetch(
+                "http://localhost:3000/api/contact",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(this.form),
+                }
+              );
+
+              if (response.ok) {
+                const result = await response.json();
+                this.successMessage = result.message;
+                this.form.name = "";
+                this.form.email = "";
+                this.form.message = "";
+                this.errorMessage = "";
+              } else {
+                const errorResponse = await response.json();
+                this.errorMessage =
+                  errorResponse.message ||
+                  "Submission failed. Please try again.";
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              this.errorMessage =
+                "An unexpected error occurred. Please try again later.";
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

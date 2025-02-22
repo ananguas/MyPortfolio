@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 // API Routes
 app.use('/api/contact', contactRoutes);
 
-// Handle 404 errors (optional)
+// Handle 404 errors 
 app.use((req, res) => {
   res.status(404).send('Page not found');
 });

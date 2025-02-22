@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db'); // Assuming a database connection is set up
+const db = require('../db'); 
 
 // POST route to handle contact form submissions
 router.post('/', (req, res) => {

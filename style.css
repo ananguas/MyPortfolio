@@ -141,6 +141,12 @@ textarea {
   font-size: 1rem;
 }
 
+#charCount {
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
 /* Responsive Form Inputs */
 @media (max-width: 480px) {
   input,

@@ -2,8 +2,9 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const contactRoutes = require('./routes/contactRoutes');
-
+const cors = require('cors'); 
 const app = express();
+app.use(cors());
 
 // Middleware
 app.use(bodyParser.json());

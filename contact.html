@@ -44,14 +44,18 @@
             />
           </div>
           <div class="filter-group">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              v-model="form.message"
-              placeholder="Write your message here"
-              required
-            ></textarea>
-          </div>
+  <label for="message">Message</label>
+  <textarea
+    id="message"
+    v-model="form.message"
+    placeholder="Write your message here"
+    maxlength="500"
+    @input="updateCharCount"
+    required
+  ></textarea>
+  <p class="char-counter">{{ charCount }}/500 characters</p>
+</div>
+
           <div class="btn-container">
             <button type="submit" class="btn">Send</button>
           </div>
@@ -69,10 +73,14 @@
             email: "",
             message: "",
           },
+          charCount: 0,
           successMessage: "",
           errorMessage: "",
         },
         methods: {
+          updateCharCount() {
+    this.charCount = this.form.message.length;
+  },
           async submitForm() {
             try {
               const response = await fetch(
